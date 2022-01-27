@@ -1,0 +1,1 @@
+sudo docker run -p 5005:5005 -v /root/flame:/app/data -e PASSWORD=<YOUR PASSWORD> pawelmalak/flame
