@@ -1,0 +1,42 @@
+version: "3.0"
+services:
+  littlelink-server:
+    image: ghcr.io/techno-tim/littlelink-server:latest
+    container_name: littlelink-server
+    environment:
+      - META_TITLE=<YOUR NAME>
+      - META_DESCRIPTION=<YOUR NAME> Link page
+      - META_AUTHOR=<YOUR NAME>
+      - LANG=en
+      - META_INDEX_STATUS=all
+      - THEME=Dark
+      - FAVICON_URL=<IMAGE URL>
+      - AVATAR_URL=<IMAGE URL>
+      - AVATAR_2X_URL=<IMAGE URL>
+      - AVATAR_ALT=<YOUR NAME>
+      - NAME=<YOUR NAME>
+      - BIO=<YOUR BIO>
+      # use ENV variable names for order, listed buttons will be boosted to the top
+      - BUTTON_ORDER=YOUTUBE,GITHUB,LINKED,EMAIL,PAYPAL
+      # you can render an unlimited amount of custom buttons by adding 
+      # the CUSTOM_BUTTON_* variables and by using a comma as a separator.
+      - CUSTOM_BUTTON_TEXT=Visit My Blog
+      - CUSTOM_BUTTON_URL=<YOUR BLOG URL>
+      - CUSTOM_BUTTON_COLOR=#6a12eb,#6a12eb
+      - CUSTOM_BUTTON_TEXT_COLOR=#ffffff,#ffffff
+      - CUSTOM_BUTTON_ALT_TEXT=Visit my blog!
+      - CUSTOM_BUTTON_NAME=HOMEPAGE
+      - CUSTOM_BUTTON_ICON=fas link,fab youtube
+      - BUTTON_TARGET=_blank # controls the button target html attribute
+      - GITHUB=https://github.com/
+      - LINKED_IN=https://www.linkedin.com/
+      - EMAIL=<YOUR EMAIL>
+      - EMAIL_TEXT=Email Me!
+
+    ports:
+      - 8080:3000
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
+#thanks to technotim
+#tip: use portainer or kompose to host in kubernetes
