@@ -1,2 +1,2 @@
-# docker
-My favorite docker stuff.
+# Docker
+Some cool docker containers, templates, and YML files.
